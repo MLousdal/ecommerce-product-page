@@ -3,6 +3,8 @@ import { ref, computed } from 'vue'
 import TheNavbar from '@/components/TheNavbar.vue'
 import IconCart from '@/components/icons/IconCart.vue'
 import NumberInput from './components/NumberInput.vue'
+import Lightbox from './components/Lightbox.vue'
+
 const product = {
   brand: 'Sneaker Company',
   name: 'Fall Limited Edition Sneakers',
@@ -10,7 +12,12 @@ const product = {
     'These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they’ll withstand everything the weather can offer.',
   price: 250,
   discount: 50,
-  image: '@/assets/images/image-product-1.jpg'
+  images: [
+    { thumbnail: 'image-product-1-thumbnail.jpg', full: 'image-product-1.jpg' },
+    { thumbnail: 'image-product-2-thumbnail.jpg', full: 'image-product-2.jpg' },
+    { thumbnail: 'image-product-3-thumbnail.jpg', full: 'image-product-3.jpg' },
+    { thumbnail: 'image-product-4-thumbnail.jpg', full: 'image-product-4.jpg' }
+  ]
 }
 
 const computedPrice = computed(() => {
@@ -23,7 +30,7 @@ const count = ref(0)
 <template>
   <TheNavbar />
   <main class="container grid grid-cols-2 gap-24 px-12 mt-24 place-items-center">
-    <img src="@/assets/images/image-product-1.jpg" />
+    <Lightbox :images="product.images" />
     <div>
       <p class="mb-6 text-xl font-bold text-primary-400">{{ product.brand }}</p>
       <h1 class="mb-12 text-6xl font-bold text-secondary-900">{{ product.name }}</h1>
@@ -45,7 +52,7 @@ const count = ref(0)
         <NumberInput v-model="count" />
         <button
           type="button"
-          class="flex items-center justify-center gap-2 p-4 text-white transition-all rounded-lg shadow-2xl bg-primary-400 grow shadow-primary-400 hover:shadow-lg hover:opacity-60"
+          class="flex items-center justify-center gap-2 p-4 text-white transition-all rounded-lg shadow-2xl bg-primary-400 grow shadow-primary-400 hover:opacity-60"
         >
           <IconCart white /> Add to cart
         </button>

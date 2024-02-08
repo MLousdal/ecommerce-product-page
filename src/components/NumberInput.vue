@@ -14,22 +14,22 @@ function increment() {
 </script>
 
 <template>
-  <div class="relative flex items-center max-w-[8rem]">
+  <div class="relative flex items-center max-w-[10rem]">
     <button
       type="button"
       id="decrement-button"
       @click="decrement"
       data-input-counter-decrement="quantity-input"
-      class="bg-secondary-50 rounded-s-lg p-3 h-11 focus:outline-none group"
+      class="p-3 h-14 bg-secondary-50 rounded-s-lg focus:outline-none group"
     >
-      <IconMinus class="group-hover:opacity-50 group-focus:opacity-50 transition-opacity" />
+      <IconMinus class="transition-opacity group-hover:opacity-50 group-focus:opacity-50" />
     </button>
     <input
       type="text"
       id="quantity-input"
       data-input-counter
       aria-describedby="helper-text-explanation"
-      class="bg-secondary-50 h-11 text-center text-secondary-900 text-sm block w-full py-2.5 font-bold focus:outline-none"
+      class="bg-secondary-50 h-14 text-center text-secondary-900 text-sm block w-full p-2.5 font-bold focus:outline-none"
       placeholder="0"
       required
       v-model="model"
@@ -39,9 +39,9 @@ function increment() {
       id="increment-button"
       @click="increment"
       data-input-counter-increment="quantity-input"
-      class="bg-secondary-50 rounded-e-lg p-3 h-11 focus:outline-none group"
+      class="p-3 h-14 bg-secondary-50 rounded-e-lg focus:outline-none group"
     >
-      <IconPlus class="group-hover:opacity-50 group-focus:opacity-50 transition-opacity" />
+      <IconPlus class="transition-opacity group-hover:opacity-50 group-focus:opacity-50" />
     </button>
   </div>
 </template>
